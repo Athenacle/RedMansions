@@ -7,9 +7,9 @@
 \usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{setspace}
-\usepackage[fontsize=11pt]{fontsize}
+%\usepackage[fontsize=15pt]{fontsize}
 \usepackage[hidelinks]{hyperref}
-\geometry{a4paper,left=2cm,right=2cm,top=1.5cm,bottom=1.5cm}
+\geometry{a4paper,left=4cm,right=3cm,top=2cm,bottom=2cm}
 
 \pagestyle{fancy}
 \fancyhead{}
@@ -37,7 +37,7 @@
 
 \newcommand{\chap}[2]{\chapter*{第#1回\quad #2}\addcontentsline{toc}{chapter}{第#1回\quad #2}}
 
-\newenvironment{poem}[0]{\vspace*{0.5em}\begin{quote}}{\end{quote}\vspace*{0.5em}}
+\newenvironment{poem}[0]{\vspace*{0.5em}\begin{quotation}}{\end{quotation}\vspace*{0.5em}}
 
 \newenvironment{pl}[0]{\bfseries}{}
 \newcommand{\emptypl}[0]{\vspace*{1em}}
@@ -50,6 +50,9 @@
 
 \titleformat{\chapter}[block]{ \LARGE \center \bfseries}{}{0.5em}{}[\vspace*{0.1em}]
 \linespread{1.5}
+
+\newcommand{\authorr}[1]{#1}
+
 \begin{document}
 
 \maketitle

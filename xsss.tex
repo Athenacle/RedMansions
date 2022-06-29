@@ -8,7 +8,7 @@
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage[fontsize=11pt]{fontsize}
-\usepackage[colorlinks=true]{hyperref}
+\usepackage[hidelinks]{hyperref}
 \geometry{a4paper,left=2cm,right=2cm,top=1.5cm,bottom=1.5cm}
 
 \pagestyle{fancy}
@@ -20,34 +20,26 @@
 \makeatother
 
 \title{脂硯齋重評石頭記}
+\date{}
 
-\newenvironment{parag}[0]{
-    \vspace*{0.2em}
-}{
-    \vspace*{0.2em}
+\hypersetup{
+    pdftitle={脂硯齋重評石頭記},
+    pdfauthor={曹雪芹},
+    pdfsubject={石头记},
+    pdfkeywords={石头记,红楼梦,脂本}
 }
+
+\newenvironment{parag}[0]{\vspace*{0.2em}}{\vspace*{0.2em}}
 
 \newenvironment{qute}[0]{\begin{quote}}{\end{quote}}
 
 \newenvironment{qute2sp}[0]{\begin{quotation}}{\end{quotation}}
 
-\newcommand{\chap}[2]{
-    \chapter*{第#1回\quad #2}
-    \addcontentsline{toc}{chapter}{第#1回\quad #2}
-    }
+\newcommand{\chap}[2]{\chapter*{第#1回\quad #2}\addcontentsline{toc}{chapter}{第#1回\quad #2}}
 
-\newenvironment{poem}[0]{
-\vspace*{0.5em}
-\begin{quote}
-    
-}{
-\end{quote}
-\vspace*{0.5em}
-}
+\newenvironment{poem}[0]{\vspace*{0.5em}\begin{quote}}{\end{quote}\vspace*{0.5em}}
 
-\newenvironment{pl}[0]{
-\bfseries
-}{}
+\newenvironment{pl}[0]{\bfseries}{}
 \newcommand{\emptypl}[0]{\vspace*{1em}}
 
 \newenvironment{note}[0]{\color{red}\small［}{］}

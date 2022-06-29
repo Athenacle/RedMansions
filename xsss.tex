@@ -1,7 +1,7 @@
-\documentclass[a4paper]{book}
+\documentclass[a4paper,oneside]{book}
 \usepackage{fancyhdr}
-\usepackage[UTF8]{ctex}
-\usepackage{xcolor}
+\usepackage[UTF8,heading = true]{ctex}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{geometry}
 \usepackage{titlesec}
 \usepackage{etoolbox}
@@ -9,15 +9,14 @@
 \usepackage{setspace}
 %\usepackage[fontsize=15pt]{fontsize}
 \usepackage[hidelinks]{hyperref}
-\geometry{a4paper,left=4cm,right=3cm,top=2cm,bottom=2cm}
+\usepackage{zhnumber}
 
-\pagestyle{fancy}
-\fancyhead{}
-\fancyhead[R]{右页眉}
 
-\makeatletter
-\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
-\makeatother
+\renewcommand{\thechapter}{\zhnum{chapter}}
+\renewcommand{\thepage}{\zhnum{page}}
+
+\geometry{a4paper,left=3cm,right=3cm,top=2cm,bottom=1.5cm}
+
 
 \title{脂硯齋重評石頭記}
 \date{}
@@ -35,23 +34,39 @@
 
 \newenvironment{qute2sp}[0]{\begin{quotation}}{\end{quotation}}
 
-\newcommand{\chap}[2]{\chapter*{第#1回\quad #2}\addcontentsline{toc}{chapter}{第#1回\quad #2}}
+\newcommand{\chap}[2]{\chapter[#2]{第#1回\\#2}\indent}
+\CTEXsetup[name={第,回}]{chapter}
 
 \newenvironment{poem}[0]{\vspace*{0.5em}\begin{quotation}}{\end{quotation}\vspace*{0.5em}}
 
 \newenvironment{pl}[0]{\bfseries}{}
 \newcommand{\emptypl}[0]{\vspace*{1em}}
 
-\newenvironment{note}[0]{\color{red}\small［}{］}
+\newenvironment{note}[0]{\color{Mahogany}\small［}{］}
 
-\newenvironment{subnote}[0]{ \scriptsize\color{blue}(}{)}
+\newenvironment{subnote}[0]{\scriptsize\color{NavyBlue}(}{)}
 
 \newcommand{\song}[1]{\textbf{［#1］}}
 
-\titleformat{\chapter}[block]{ \LARGE \center \bfseries}{}{0.5em}{}[\vspace*{0.1em}]
+\titleformat{\chapter}[block]{\LARGE\center}{}{0.5em}{}[]
 \linespread{1.5}
 
-\newcommand{\authorr}[1]{#1}
+\newcommand{\authorr}[1]{\small\textmd{#1}}
+
+
+\pagestyle{fancy}
+\fancyfoot[C]{}
+\fancyhead[L]{\color{gray}\small\thepage}
+\fancyhead[R]{\color{gray}\small\textsl{\rightmark}}
+
+\fancypagestyle{plain}{
+    \pagestyle{fancy}
+    \fancyfoot[C]{}
+    \fancyhead[L]{\color{gray}\small\thepage}
+    \fancyhead[R]{\color{gray}\small\textsl{\rightmark}}
+}
+
+\renewcommand{\chaptermark}[1]{\markright{第\thechapter回\quad #1}}
 
 \begin{document}
 
@@ -84,7 +99,6 @@
 \include{21.html.tex}
 \include{22.html.tex}
 \include{23.html.tex}
-
 \include{24.html.tex}
 \include{25.html.tex}
 \include{26.html.tex}

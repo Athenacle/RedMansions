@@ -4,23 +4,33 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{geometry}
 \usepackage{titlesec}
-\usepackage{etoolbox}
 \usepackage{graphicx}
-\usepackage{setspace}
-%\usepackage[fontsize=15pt]{fontsize}
-\usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks,bookmarksnumbered=true]{hyperref}
 \usepackage{zhnumber}
+\usepackage{titlesec}
+\usepackage{CJKpunct}
 
 
-\renewcommand{\thechapter}{\zhnum{chapter}}
-\renewcommand{\thepage}{\zhnum{page}}
+\CJKpunctnobreakbetweenpuncts
+\punctstyle{banjiao}
 
-\geometry{a4paper,left=3cm,right=3cm,top=2cm,bottom=1.5cm}
+\geometry{a4paper,left=3cm,right=3cm,top=2.3cm,bottom=2cm}
 
 
 \title{脂硯齋重評石頭記}
+
+\author{曹雪芹\\
+    \texttt{著}
+    \and
+    脂砚斋\\
+    \texttt{评} 
+    \and 高鹗\\
+    \texttt{续}
+    \and 程伟元\\
+    \texttt{辑}
+}
+
 \date{}
-\author{}
 
 \hypersetup{
     pdftitle={脂硯齋重評石頭記},
@@ -29,40 +39,57 @@
     pdfkeywords={石头记,红楼梦,脂本}
 }
 
-\newenvironment{parag}[0]{\vspace*{0.2em}}{\vspace*{0.2em}}
+\newenvironment{parag}[0]
+{\vspace*{0.4em}}
+    {\vspace*{0.4em}}
 
-\newenvironment{qute}[0]{\begin{quote}}{\end{quote}}
+\newenvironment{qute}[0]
+{\begin{quote}}
+    {\end{quote}}
 
-\newenvironment{qute2sp}[0]{\begin{quotation}}{\end{quotation}}
+\newenvironment{qute2sp}[0]
+{\begin{quotation}}
+    {\end{quotation}}
 
 \newcommand{\chap}[2]{\chapter[#2]{第#1回\\#2}\indent}
-\CTEXsetup[name={第,回}]{chapter}
+\ctexset{chapter={name={第,回}}}
 
-\newenvironment{poem}[0]{\vspace*{0.5em}\begin{quotation}}{\end{quotation}\vspace*{0.5em}}
+\newenvironment{poem}[0]
+{\vspace*{0.6em}\begin{quotation}}
+{\end{quotation}\vspace*{0.6em}}
 
 \newenvironment{pl}[0]{\bfseries}{}
-\newcommand{\emptypl}[0]{\vspace*{1em}}
 
-\newenvironment{note}[0]{\color{Mahogany}\small［}{］}
+\newcommand{\emptypl}[0]{\vspace*{1.1em}}
 
-\newenvironment{subnote}[0]{\scriptsize\color{NavyBlue}(}{)}
+\newenvironment{note}[0]{\color{Mahogany}\small\punctstyle{banjiao}$[ $}{$] $}
 
-\newcommand{\song}[1]{\textbf{［#1］}}
+\newenvironment{subnote}[0]{\scriptsize\color{NavyBlue}$\langle$}{$\rangle$}
+
+\newcommand{\song}[1]{\textbf{[#1]}}
+
+
+
 
 \titleformat{\chapter}[block]{\LARGE\center}{}{0.5em}{}[]
-\linespread{1.5}
+\titlespacing*{\chapter}{0pt}{-20pt}{10pt}
+\linespread{1.7}
 
 \newcommand{\authorr}[1]{\small\textmd{#1}}
 
 
+
+\renewcommand{\thechapter}{\zhnum{chapter}}
+\renewcommand{\thepage}{\zhnum{page}}
+
 \pagestyle{fancy}
-\fancyfoot[C]{}
-\fancyhead[L]{\color{gray}\small\thepage}
+\fancyfoot{}
+\fancyhead[L]{\color{gray}\small\zhnum{page}}
 \fancyhead[R]{\color{gray}\small\textsl{\rightmark}}
 
 \fancypagestyle{plain}{
     \pagestyle{fancy}
-    \fancyfoot[C]{}
+    \fancyfoot{}
     \fancyhead[L]{\color{gray}\small\thepage}
     \fancyhead[R]{\color{gray}\small\textsl{\rightmark}}
 }
@@ -72,11 +99,14 @@
 \begin{document}
 
 \maketitle
+
+\frontmatter
 \tableofcontents
 \CJKfamily{zhkai}
 \include{preamble.tex}
 \include{note.tex}
 
+\mainmatter
 \include{1-80/1.html.tex}
 \include{1-80/2.html.tex}
 \include{1-80/3.html.tex}
